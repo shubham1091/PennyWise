@@ -1,27 +1,45 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useThemeColor } from "@/hooks/useThemeColor";
+import ListItem from "@/components/ListItem";
 
-const setting = () => {
-  const backgroundColor = useThemeColor({}, "background");
-  const textColor = useThemeColor({}, "text");
+import { Ionicons } from "@expo/vector-icons";
+import { View } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+const Setting = () => {
+  
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor }]}>
-      <Text style={[styles.text, { color: textColor }]}>setting</Text>
-    </SafeAreaView>
+    <View
+      className="flex-1  overflow-hidden m-3"
+    >
+      <GestureHandlerRootView className="">
+        <ListItem
+          label="Categories"
+          details={
+            <Ionicons
+              name="chevron-forward"
+              size={24}
+              color="#fff"
+            />
+          }
+          onClick={() => console.log("Clicked Categories")}
+        />
+
+        <ListItem
+          label="Erase Data"
+          swipeToDelete
+          isDestructive
+          onClick={() => console.log("Clicked Erase Data")}
+          details={
+            <Ionicons
+              name="trash"
+              size={24}
+              color="#ef4444"
+            />
+          }
+          onDelete={() => console.log("Clicked Delete")}
+        />
+      </GestureHandlerRootView>
+    </View>
   );
 };
 
-export default setting;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: 20,
-  },
-});
+export default Setting;

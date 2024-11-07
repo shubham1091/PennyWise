@@ -1,27 +1,24 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import React from "react";
+import { Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const reports = () => {
   const backgroundColor = useThemeColor({}, "background");
   const textColor = useThemeColor({}, "text");
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor }]}>
-      <Text style={[styles.text, { color: textColor }]}>reports</Text>
+    <SafeAreaView
+      style={{ backgroundColor }}
+      className="flex-1 items-center justify-center"
+    >
+      <Text
+        style={{ color: textColor }}
+        className="text-xl"
+      >
+        reports
+      </Text>
     </SafeAreaView>
   );
 };
 
 export default reports;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: 20,
-  },
-});
