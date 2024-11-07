@@ -1,17 +1,19 @@
 import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useThemeColor } from "@/hooks/useThemeColor"; // Adjust path if necessary
+import { useThemeColor } from "@/hooks/useThemeColor";
 
-export default function HomeScreen() {
+const setting = () => {
   const backgroundColor = useThemeColor({}, "background");
   const textColor = useThemeColor({}, "text");
-
   return (
     <SafeAreaView style={[styles.container, { backgroundColor }]}>
-      <Text style={[styles.text, { color: textColor }]}>Home</Text>
+      <Text style={[styles.text, { color: textColor }]}>setting</Text>
     </SafeAreaView>
   );
-}
+};
+
+export default setting;
 
 const styles = StyleSheet.create({
   container: {
